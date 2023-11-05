@@ -3,6 +3,7 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
+import { Button, Modal, message } from 'antd';
 
 import {Header} from '../components/Header'
 import {Material} from '../components/Material'
@@ -11,6 +12,8 @@ import {Config} from '../components/Config'
 
 import { PageContext } from '../store';
 
+
+let isLoading = false;
 
 export const LowCodeEditor = () => {
 
@@ -36,17 +39,35 @@ export const LowCodeEditor = () => {
     const [node, setNode] = useState([])
     const [refreshChart, setRefreshChart] = useState(false)
     const [curConfigId, setCurConfigId] = useState('')
+    const [tempName, setTempName] = useState('')
 
     useEffect(() => {
+        console.log('====schemaRemote', id)
         if (!id) return
-        axios
-          .get(`http://localhost:3001/page/${id}`)
-          .then((res) => setNode(JSON.parse(res.data.schema)));
+        if (isLoading) return;
+        isLoading = true;
+        // 获取模板详情
+        message.loading('正在加载模板详情...', 0)
+        axios.get(`/api/getTempDetail?id=${id}`).then((res) => {
+            isLoading = false;
+            message.destroy()
+            console.log('====res', res)
+            let {data = {}} = res.data
+            console.log('====data', data)
+            if (!data) return;
+            setTempName(data.tempName || '')
+            setNode(JSON.parse(data.schema) || [])
+        }).catch((err) => {
+            isLoading = false;
+            console.log('====err', err)
+            message.destroy()
+            message.error(err.message || '加载模板详情失败')
+        })
       }, []);
 
     return (
-        <PageContext.Provider value={{node, setNode, curConfigId, setCurConfigId, refreshChart, setRefreshChart}}>
-            <div className='h-full p-2'>
+        <PageContext.Provider value={{node, setNode, curConfigId, setCurConfigId, refreshChart, setRefreshChart, tempName, setTempName}}>
+            <div className='h-full p-3'>
                 <Header />
                 <div className='flex h-full'>
                     <div className='w-1/4'>

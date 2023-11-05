@@ -2,7 +2,9 @@
 # 低代码平台实践
 
 
-https://zh-hans.react.dev/
+
+
+[react官网](https://zh-hans.react.dev/)
 
 
 > node v16+
@@ -74,6 +76,25 @@ https://github.com/hustcc/echarts-for-react
 
 
 npm install echarts-for-react echarts -S
+
+
+
+
+
+## Vercel部署
+
+
+
+### 报错记录
+
+- `vercel --prod`报错：`Command "react-scripts build" exited with 127`
+
+> vercel的`Root Directory`配置问题，参考：https://github.com/vercel/next.js/discussions/40733
+
+### 添加 Serverless接口
+
+
+### 添加MongoDB云数据库
 
 
 

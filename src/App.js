@@ -12,7 +12,7 @@ import {
 
 const routes = [
   {
-    path: "/",
+    path: "/create",
     component: LowCodeEditor
   },
   {
@@ -46,6 +46,9 @@ function App() {
             <PagePreview />
           </Route>
           <Route path="/editor/:id">
+            <LowCodeEditor />
+          </Route>
+          <Route path="/create">
             <LowCodeEditor />
           </Route>
           <Route path="/">
