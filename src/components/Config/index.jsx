@@ -47,7 +47,7 @@ export const Config = () => {
     const renderConfig = () => {
         if (curConfigId) {
             const curNode = node.find(item => item.id === curConfigId)
-            const {name: curCompName, props: curProps, style} = curNode
+            const {name: curCompName, props: curProps} = curNode
 
             const allProps = componentsList.find(item => item.name === curCompName).propsType
 

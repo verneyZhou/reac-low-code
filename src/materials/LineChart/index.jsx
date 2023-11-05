@@ -19,6 +19,7 @@ export const LineChartPropsType = [
 
 // 线状图
 export const LineChart = ({option, urlParams}) => {
+    // eslint-disable-next-line no-unused-vars
     const [series, setSeries] = useState([150, 230, 224, 218, 135, 147, 260]);
     const [options, setOptions] = useState({});
 
