@@ -25,6 +25,7 @@ export const LineChart = ({option, urlParams}) => {
 
     console.log('====options', option);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const getOption = () => {
         try {
             setOptions(JSON.parse(option))
@@ -42,7 +43,7 @@ export const LineChart = ({option, urlParams}) => {
 
     useEffect(() => {
         getOption()
-    }, [option]) // 监听option, 当option变化时，执行getOption
+    }, [getOption, option]) // 监听option, 当option变化时，执行getOption
 
 
     return (
