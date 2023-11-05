@@ -42,7 +42,7 @@ export const LowCodeEditor = () => {
     const [tempName, setTempName] = useState('')
 
     useEffect(() => {
-        console.log('====schemaRemote', id)
+        console.log('==1111==schemaRemote', id)
         if (!id) return
         if (isLoading) return;
         isLoading = true;
