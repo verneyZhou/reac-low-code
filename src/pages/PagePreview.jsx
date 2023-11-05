@@ -55,7 +55,9 @@ export const PagePreview = () => {
       message.destroy()
       message.error(err.message || '加载模板详情失败')
   })
-  }, [id, schemaRemote]);
+  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
   <div className=" p-5 flex flex-col items-center">
