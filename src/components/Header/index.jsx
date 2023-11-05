@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react'
 import axios from 'axios'
 import { PageContext } from '../../store'
 import { useParams, useHistory } from "react-router-dom";
-import { Button, Modal, message } from 'antd';
+import { Modal, message } from 'antd';
 
 
 // 头部区
@@ -11,10 +11,9 @@ export const Header = () => {
     let { id } = useParams();
     const history = useHistory()
 
-    const {node, setNode, curConfigId, setCurConfigId, tempName, setTempName } = useContext(PageContext);
+    const {node, tempName, setTempName } = useContext(PageContext);
     const [tempList, setTempList] = useState([])
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [messageApi, contextHolder] = message.useMessage();
 
     const handleClick = async () => {
         // 请求后端接口，将页面数据保存到数据库
@@ -30,7 +29,7 @@ export const Header = () => {
         let api  = id ? '/api/updateTemp' : '/api/addTemp';
         message.loading('正在保存...', 0)
         try {
-            const res = await axios.post(api, params)
+            await axios.post(api, params)
             message.destroy()
             message.success('保存成功')
         } catch (error) {

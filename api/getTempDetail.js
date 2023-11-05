@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import mongodb, { MongoClient } from 'mongodb';
+import { MongoClient } from 'mongodb';
 import DB from '../db/config.js';
 
 // const ObjectId = mongodb.ObjectId;

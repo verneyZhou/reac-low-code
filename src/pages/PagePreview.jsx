@@ -1,8 +1,8 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useHistory } from "react-router-dom";
 import {componentsList} from '../materials'
-import { Button, Modal, message } from 'antd';
+import { message } from 'antd';
 
 
 let isLoading = false;
@@ -55,7 +55,7 @@ export const PagePreview = () => {
       message.destroy()
       message.error(err.message || '加载模板详情失败')
   })
-  }, []);
+  }, [id, schemaRemote]);
 
   return (
   <div className=" p-5 flex flex-col items-center">

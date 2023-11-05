@@ -3,7 +3,7 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
-import { Button, Modal, message } from 'antd';
+import { message } from 'antd';
 
 import {Header} from '../components/Header'
 import {Material} from '../components/Material'
@@ -63,7 +63,7 @@ export const LowCodeEditor = () => {
             message.destroy()
             message.error(err.message || '加载模板详情失败')
         })
-      }, []);
+      }, [id]);
 
     return (
         <PageContext.Provider value={{node, setNode, curConfigId, setCurConfigId, refreshChart, setRefreshChart, tempName, setTempName}}>

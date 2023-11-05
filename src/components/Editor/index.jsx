@@ -1,5 +1,5 @@
 
-import React, {useState, useContext} from 'react'
+import React, {useContext} from 'react'
 
 import {componentsList} from '../../materials'
 import {PageContext} from '../../store'
@@ -12,7 +12,7 @@ import { ReactSortable } from "react-sortablejs";
 
 export const Editor = () => {
     // const [comp, setComp] = useState(null);
-    const {node, setNode, curConfigId, setCurConfigId } = useContext(PageContext);
+    const {node, setNode, setCurConfigId } = useContext(PageContext);
 
     // 当被拖动的元素在可放置目标上方移动时触发，通常在目标元素上使用。需要阻止默认行为才能接受拖放。
     const handleDragOver = (e) => {

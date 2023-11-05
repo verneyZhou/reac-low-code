@@ -10,20 +10,20 @@ import {
 
 
 
-const routes = [
-  {
-    path: "/create",
-    component: LowCodeEditor
-  },
-  {
-    path: "/page/:id",
-    component: PagePreview
-  },
-  {
-    path: "/editor/:id",
-    component: LowCodeEditor
-  }
-]
+// const routes = [
+//   {
+//     path: "/create",
+//     component: LowCodeEditor
+//   },
+//   {
+//     path: "/page/:id",
+//     component: PagePreview
+//   },
+//   {
+//     path: "/editor/:id",
+//     component: LowCodeEditor
+//   }
+// ]
 
 
 function App() {
