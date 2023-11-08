@@ -2,9 +2,8 @@
 # 低代码平台实践
 
 
+https://react-low-code-seven.vercel.app/
 
-
-[react官网](https://zh-hans.react.dev/)
 
 
 > node v16+
@@ -13,6 +12,7 @@
 初始化项目：npx create-react-app react-low-code
 
 
+[react官网](https://zh-hans.react.dev/)
 > react v18+
 
 
@@ -92,7 +92,6 @@ npm install echarts-for-react echarts -S
 > vercel的`Root Directory`配置问题，参考：https://github.com/vercel/next.js/discussions/40733
 
 ### 添加 Serverless接口
-
 
 - 接口：`api/...`
 
